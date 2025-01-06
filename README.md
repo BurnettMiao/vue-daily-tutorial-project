@@ -1,4 +1,4 @@
-#### 取自 vue.js 官網的 tutorial 進行基礎的 練習
+#### 取自 vue.js 官網的 tutorial 進行基礎的練習
 
 ---
 
