@@ -89,7 +89,7 @@ function decrement(item) {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 200px;
+  max-width: 360px;
 }
 
 .summary {
@@ -104,7 +104,7 @@ function decrement(item) {
 }
 
 .cart-item {
-  max-width: 200px;
+  max-width: 360px;
   display: flex;
   align-items: center;
   justify-content: space-between;

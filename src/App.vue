@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
+import DrinkOrder from '@/components/DrinkOrder.vue'
 import TodoDemo from '@/components/TodoDemo.vue'
 import LifeCycle from '@/components/LifeCycle.vue'
 import WatchDemo from '@/components/WatchDemo.vue'
@@ -25,6 +26,8 @@ function clickTwo() {
 
 <template>
   <div class="container">
+    <DrinkOrder />
+
     <TodoDemo />
 
     <LifeCycle />
