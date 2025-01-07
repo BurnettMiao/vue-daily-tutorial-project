@@ -28,6 +28,8 @@ function clickTwo() {
   <div class="container">
     <DrinkOrder />
 
+    <hr />
+
     <TodoDemo />
 
     <LifeCycle />

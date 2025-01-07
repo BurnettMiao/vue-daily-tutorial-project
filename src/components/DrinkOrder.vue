@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 
 const drinks = ref([
   { id: 1, name: 'Coffee', price: 50 },
-  { id: 2, name: 'Latte', price: 60 },
+  { id: 2, name: 'Latee', price: 60 },
   { id: 3, name: 'Matcha Latte', price: 70 },
   { id: 4, name: 'Black Tea', price: 40 }
 ])
@@ -51,49 +51,60 @@ function decrement(item) {
   <h1>Order Drink</h1>
 
   <!-- 飲料清單 -->
+  <h3>飲料清單</h3>
   <div class="drinks-container">
     <div class="drink-item" v-for="drink in drinks" :key="drink.id">
-      <span>{{ drink.name }} - ${{ drink.price }} </span>
-
+      <span>{{ drink.name }} - {{ drink.price }}</span>
       <button @click="addDrink(drink)">加入</button>
     </div>
   </div>
 
-  <br />
+  <!-- 訂單明細 -->
+  <h3>訂單明細</h3>
+  <div class="list-container">
+    <div v-if="cart.length === 0">尚未有訂單</div>
+    <div v-else>
+      <span class="cart-item" v-for="drink in cart" :key="drink.id">
+        <span>{{ drink.name }} x {{ drink.quantity }} - {{ drink.price * drink.quantity }}</span>
 
-  <!-- 訂單摘要 -->
-  <div class="summary">
-    <p>Total Cups: {{ totalQuantity }}</p>
-    <p>Total Amount: {{ totalPrice }}</p>
+        <span class="list-btns">
+          <button @click="decrement(drink)">-1</button>
+          <button @click="increment(drink)">+1</button>
+        </span>
+      </span>
+    </div>
   </div>
 
-  <br />
-
-  <!-- 訂單明細 -->
-  <h2>Order Lists</h2>
-  <div v-if="cart.length === 0">Lists Empty</div>
-  <div v-else>
-    <div class="cart-item" v-for="drink in cart" :key="drink.id">
-      <span> {{ drink.name }} x {{ drink.quantity }} - ${{ drink.price * drink.quantity }} </span>
-
-      <div>
-        <button @click="increment(drink)">+1</button>
-        <button @click="decrement(drink)">-1</button>
-      </div>
-    </div>
+  <!-- 訂單摘要 -->
+  <h3>訂單摘要</h3>
+  <div class="summary">
+    <p>
+      Total Cups: <span class="summary-cups">{{ totalQuantity }}</span>
+    </p>
+    <p>
+      Total Amout: <span class="summary-price">{{ totalPrice }}</span>
+    </p>
   </div>
 </template>
 
 <style scoped>
+h1 {
+  font-weight: bold;
+}
+
 .drinks-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 360px;
+  max-width: 260px;
 }
 
-.summary {
-  font-weight: bold;
+.list-container {
+  max-width: 260px;
+}
+
+.list-container > div {
+  padding: 0;
 }
 
 .drink-item {
@@ -101,12 +112,31 @@ function decrement(item) {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  padding: 0;
 }
 
 .cart-item {
-  max-width: 360px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.list-btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.summary {
+  max-width: 260px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary-cups,
+.summary-price {
+  font-weight: bold;
 }
 </style>
