@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 
 const drinks = ref([
   { id: 1, name: 'Coffee', price: 50 },
-  { id: 2, name: 'Latee', price: 60 },
+  { id: 2, name: 'Latte', price: 60 },
   { id: 3, name: 'Matcha Latte', price: 70 },
   { id: 4, name: 'Black Tea', price: 40 }
 ])
