@@ -82,7 +82,7 @@ function decrement(item) {
       Total Cups: <span class="summary-cups">{{ totalQuantity }}</span>
     </p>
     <p>
-      Total Amout: <span class="summary-price">{{ totalPrice }}</span>
+      Total Amount: <span class="summary-price">{{ totalPrice }}</span>
     </p>
   </div>
 </template>
