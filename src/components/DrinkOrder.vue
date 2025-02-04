@@ -34,15 +34,17 @@ function addDrink(drink) {
   }
 }
 
-function increment(item) {
-  item.quantity++
+function increment(drink) {
+  drink.quantity++
 }
 
-function decrement(item) {
-  if (item.quantity > 1) {
-    item.quantity--
+function decrement(drink) {
+  if (drink.quantity > 1) {
+    drink.quantity--
   } else {
-    cart.value = cart.value.filter((cartItem) => cartItem.id !== item.id)
+    cart.value = cart.value.filter((cartItem) => {
+      return cartItem.id !== drink.id
+    })
   }
 }
 </script>

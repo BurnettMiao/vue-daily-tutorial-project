@@ -2,25 +2,25 @@
 import { ref } from 'vue'
 
 import DrinkOrder from '@/components/DrinkOrder.vue'
+
 import TodoDemo from '@/components/TodoDemo.vue'
 import LifeCycle from '@/components/LifeCycle.vue'
 import WatchDemo from '@/components/WatchDemo.vue'
 import PropsDemo from '@/components/PropsDemo.vue'
-import EemitsDemo from '@/components/EmitsDemo.vue'
+import EmitsDemo from '@/components/EmitsDemo.vue'
 import SlotDemo from '@/components/SlotDemo.vue'
 
-const receiveOne = ref('no emit one')
-const receiveTwo = ref(false)
+const emitSentence = ref('No emit yet!!')
+const emitBoolean = ref(false)
 
 const propOneMsg = ref()
-const propTwoValue = ref()
+const propTwoMsg = ref()
 
-function clickOne() {
-  propOneMsg.value = 'click and props msg from parent'
+function clickPropOne() {
+  propOneMsg.value = 'Prop Msg from parenet!!'
 }
-
-function clickTwo() {
-  propTwoValue.value = true
+function clickPropTwo() {
+  propTwoMsg.value = true
 }
 </script>
 
@@ -28,48 +28,57 @@ function clickTwo() {
   <div class="container">
     <DrinkOrder />
 
-    <hr />
+    <hr class="margin-space" />
 
     <TodoDemo />
 
+    <hr class="margin-space" />
+
     <LifeCycle />
+
+    <hr class="margin-space" />
 
     <WatchDemo />
 
-    <PropsDemo :propOne="propOneMsg" :propTwo="propTwoValue" />
-    <button @click="clickOne">Prop One</button>
-    <button @click="clickTwo">Prop Two</button>
+    <hr class="margin-space" />
 
-    <EemitsDemo @emitOne="(data) => (receiveOne = data)" @emitTwo="(data) => (receiveTwo = data)" />
-    <p>{{ receiveOne }}</p>
-    <div :class="{ red: !receiveTwo, green: receiveTwo }">
-      {{ receiveTwo ? 'eimt is true' : 'emit is false' }}
+    <PropsDemo :propOne="propOneMsg" :propTwo="propTwoMsg" />
+    <button @click="clickPropOne">Prop One</button>
+    <button @click="clickPropTwo">Prop Two</button>
+
+    <hr class="margin-space" />
+
+    <EmitsDemo @emitOne="(msg) => (emitSentence = msg)" @emitTwo="(msg) => (emitBoolean = msg)" />
+    <p>{{ emitSentence }}</p>
+    <div class="emitDiv" :class="{ emitDivTrue: emitBoolean, emitDivFalse: !emitBoolean }">
+      {{ emitBoolean ? 'Emit is true' : 'Emit is false' }}
     </div>
-    <!-- <div v-if="!receiveTwo" class="red">emit two is false</div>
-    <div v-else class="green">emit two is true</div> -->
+
+    <hr class="margin-space" />
 
     <SlotDemo>
-      <template v-slot:slot-title>Slot Title from parent</template>
+      <template v-slot:slot-title> Slot Title from Parent!! </template>
 
-      <template v-slot:slot-sentence>Slot Sentence from parent!</template>
+      <template v-slot:slot-sentence> slot sentence from parent components! </template>
     </SlotDemo>
   </div>
 </template>
 
-<style>
-div {
+<style scoped>
+.emitDiv {
   padding: 10px;
 }
 
-.red {
+.emitDivTrue {
+  background-color: cadetblue;
+  color: #fff;
+}
+.emitDivFalse {
   background-color: brown;
+  color: #fff;
 }
 
-.green {
-  background-color: greenyellow;
-}
-
-.container {
-  padding: 1rem;
+.margin-space {
+  margin-block: 1rem;
 }
 </style>

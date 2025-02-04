@@ -2,7 +2,7 @@
 const emits = defineEmits(['emitOne', 'emitTwo'])
 
 function clickOne() {
-  emits('emitOne', 'click and emit one')
+  emits('emitOne', 'This is emit from child!!')
 }
 
 function clickTwo() {
@@ -13,6 +13,5 @@ function clickTwo() {
 <template>
   <h2>Emits Demo</h2>
   <button @click="clickOne">Emit One</button>
-
   <button @click="clickTwo">Emit Two</button>
 </template>

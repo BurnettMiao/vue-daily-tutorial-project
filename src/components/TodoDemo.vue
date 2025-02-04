@@ -9,7 +9,6 @@ const todos = ref([
   { id: id.value++, text: 'Learn JavaScript', done: true },
   { id: id.value++, text: 'Learn Vue', done: false }
 ])
-
 const filterTodos = computed(() => {
   return isCompleted.value ? todos.value.filter((t) => !t.done) : todos.value
 })
@@ -25,16 +24,16 @@ function removeTodo(todo) {
 </script>
 
 <template>
-  <h2>Todos Demo</h2>
+  <h2>Todo Demo</h2>
 
   <form @submit.prevent="addTodo">
-    <input type="text" v-model="newTodo" required placeholder="new todo..." />
-    <button>Add Todo</button>
+    <input type="text" v-model="newTodo" required />
+    <button>New Todo</button>
   </form>
 
   <ul>
     <li v-for="todo in filterTodos" :key="todo.id">
-      <input type="checkbox" />
+      <input type="checkbox" v-model="todo.done" />
       <span :class="{ done: todo.done }">{{ todo.text }}</span>
       <button @click="removeTodo(todo)">X</button>
     </li>

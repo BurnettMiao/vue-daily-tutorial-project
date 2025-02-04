@@ -5,19 +5,20 @@ import { ref, watch } from 'vue'
 const id = ref(1)
 const todoData = ref('')
 
-async function fetcData() {
+async function fetchData() {
   todoData.value = ''
   const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${id.value}`)
   todoData.value = await res.json()
 }
 
-fetcData()
-watch(id, fetcData)
+fetchData()
+
+watch(id, fetchData)
 </script>
 
 <template>
   <h2>Watch Demo</h2>
-  <p>Todos ID: {{ id }}</p>
+  <p>Todo ID: {{ id }}</p>
   <button @click="id++">Fetch Next ID</button>
   <p v-if="!todoData">Load...</p>
   <pre v-else>{{ todoData }}</pre>

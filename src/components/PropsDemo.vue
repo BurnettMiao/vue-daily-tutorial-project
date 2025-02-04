@@ -2,7 +2,7 @@
 const props = defineProps({
   propOne: {
     type: String,
-    default: 'no prop one yet'
+    default: 'No props yet!!'
   },
   propTwo: {
     type: Boolean,
@@ -14,21 +14,23 @@ const props = defineProps({
 <template>
   <h2>Props Demo</h2>
   <p>{{ props.propOne }}</p>
-  <div :class="{ red: !props.propTwo, green: props.propTwo }">
-    {{ propTwo ? 'prop is true' : 'prop is false' }}
-  </div>
+  <p class="propDiv" :class="{ propTrue: props.propTwo, propFalse: !props.propTwo }">
+    {{ props.propTwo ? 'Props is true' : 'Props is false' }}
+  </p>
 </template>
 
 <style>
-div {
+.propDiv {
   padding: 10px;
 }
 
-.red {
-  background-color: brown;
+.propTrue {
+  background-color: cadetblue;
+  color: #fff;
 }
 
-.green {
-  background-color: darkgreen;
+.propFalse {
+  background-color: brown;
+  color: #fff;
 }
 </style>
