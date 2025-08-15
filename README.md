@@ -1,9 +1,18 @@
-#### 取自 vue.js 官網的 tutorial 進行基礎的練習
+#### vue 及 JavaScript 的相關練習
 
----
+- Pig Dice Game
+- 記憶配對遊戲
+- 貪食蛇遊戲參考
 
-# Vue 3 + Vite
+  [畫面設計](https://codepen.io/fariati/pen/mdRpEYP)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+  [蛇型設計](https://codepen.io/furkangulsen/pen/aryJra)
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+  [基本設計](https://codepen.io/Wyatt1/pen/eradqp?editors=0010)
+
+  [基本設計](https://www.geeksforgeeks.org/javascript/create-a-snake-game-using-html-css-and-javascript/)
+
+- 打磚塊
+- 乒乓球
+- 2048
+- 俄羅斯方塊
