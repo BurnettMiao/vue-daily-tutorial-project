@@ -71,11 +71,11 @@ function clickPropTwo() {
 
 .emitDivTrue {
   background-color: cadetblue;
-  color: #fff;
+  color: #000;
 }
 .emitDivFalse {
   background-color: brown;
-  color: #fff;
+  color: #000;
 }
 
 .margin-space {
