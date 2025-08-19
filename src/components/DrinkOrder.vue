@@ -10,18 +10,6 @@ const drinks = ref([
 
 const cart = ref([])
 
-const totalQuantity = computed(() => {
-  return cart.value.reduce((sum, item) => {
-    return sum + item.quantity
-  }, 0)
-})
-
-const totalPrice = computed(() => {
-  return cart.value.reduce((sum, item) => {
-    return sum + item.price * item.quantity
-  }, 0)
-})
-
 function addDrink(drink) {
   const existItem = cart.value.find((item) => {
     return item.id === drink.id
@@ -47,6 +35,18 @@ function decrement(drink) {
     })
   }
 }
+
+const totalQuantity = computed(() => {
+  return cart.value.reduce((sum, item) => {
+    return sum + item.quantity
+  }, 0)
+})
+
+const totalPrice = computed(() => {
+  return cart.value.reduce((sum, item) => {
+    return sum + item.price * item.quantity
+  }, 0)
+})
 </script>
 
 <template>
